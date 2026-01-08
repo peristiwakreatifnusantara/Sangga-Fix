@@ -4,12 +4,11 @@
   "private": true,
  "scripts": {
 "dev": "next dev",
-"build": "next build && next export",
+"build": "next build",
 "start": "next start",
 "lint": "next lint",
 "export": "next export"
 },
-
   "dependencies": {
     "@motionone/utils": "^10.16.3",
     "@studio-freight/react-lenis": "^0.0.36",
