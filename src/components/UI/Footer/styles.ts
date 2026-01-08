@@ -171,6 +171,7 @@ export const Translator = styled.div`
 `;
 
 export const CopyRight = styled.div`
+color: #000000ff;
   font-size: 1rem;
   font-weight: 400;
   display: flex;
@@ -180,5 +181,9 @@ export const CopyRight = styled.div`
   @media (max-width: 768px) {
     font-size: 0.875rem;
     gap: 0.25rem;
+  }
+
+  img {
+    filter: brightness(0);
   }
 `;

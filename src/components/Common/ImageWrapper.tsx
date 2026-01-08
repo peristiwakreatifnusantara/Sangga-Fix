@@ -16,8 +16,8 @@ const Wrapper = styled.div<WrapperProps>`
   
   img {
     border-radius: ${(props) => props.$borderRadius || '0'};
-    object-width: ${(props) => props.$width || 'auto'};
-    object-height: ${(props) => props.$height || 'auto'};
+    width: 100%;
+    height: 100%;
   }
 `;
 

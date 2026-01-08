@@ -4,17 +4,17 @@ import {
   FinancialFuture,
   FinancilaFreedom,
   HeroSection,
-  OffersSection,
+  HistoryTimeline
 } from '@/components';
 
 export default function Home() {
   return (
     <main>
       <HeroSection />
+      <HistoryTimeline />
       <Featured />
-      <OffersSection />
-      <FinancilaFreedom />
       <FinancialFuture />
+      <FinancilaFreedom />
       <FAQ />
     </main>
   );

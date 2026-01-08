@@ -53,7 +53,7 @@ export const ImageCtn = styled.div`
   position: relative;
   display: flex;
   border-radius: 0.75rem;
-  border: 4px solid var(--stroke, rgba(15, 118, 10, 0.79));
+  border: 4px solid var(--stroke, rgba(255, 255, 255, 0.79));
 
 
   img {
@@ -183,7 +183,7 @@ export const OfferCard = styled.div`
   overflow: hidden;
   height: 31.25rem;
   border-radius: 0.75rem;
-  border: 4px solid var(--stroke, rgba(15, 118, 10, 0.79));
+  border: 4px solid var(--stroke, rgba(232, 232, 232, 0.79));
   display: flex;
   flex-direction: column;
   background: url(${grid_background.src}) no-repeat;

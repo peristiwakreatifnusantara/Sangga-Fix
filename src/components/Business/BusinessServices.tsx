@@ -1,86 +1,100 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import ImageWrapper from '../Common/ImageWrapper';
 
 gsap.registerPlugin(ScrollTrigger);
 
-import ImageWrapper from '../Common/ImageWrapper';
-
 const Section = styled.section`
   padding: 6rem 2rem;
+  background-color: transparent;
 `;
 
 const Container = styled.div`
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
 `;
 
-const ServiceItem = styled.div`
-  border-bottom: 1px solid #333;
-  padding: 2rem 0;
-  cursor: pointer;
-  position: relative;
-  
-  &:first-child {
-    border-top: 1px solid #333;
-  }
-`;
+const Header = styled.div`
+  text-align: center;
+  margin-bottom: 4rem;
 
-const ItemHeader = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  
-  h3 {
-    font-size: 2rem;
-    color: var(--white);
-    transition: color 0.3s ease;
-  }
-  
-  span {
-    color: var(--green);
-    font-size: 2rem;
-  }
-  
-  &:hover h3 {
-    color: var(--green);
-  }
-`;
-
-const ItemContent = styled.div`
-  height: 0;
-  overflow: hidden;
-  
-  .content-inner {
-    padding-top: 2rem;
-    display: flex;
-    gap: 2rem;
-    
-    @media (max-width: 768px) {
-      flex-direction: column;
-    }
+  h2 {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #1b1b1b;
+    margin-bottom: 1rem;
   }
 
   p {
-    flex: 1;
-    color: var(--link-color);
+    color: #555;
     font-size: 1.1rem;
-    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+`;
+
+const Grid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+`;
+
+const Card = styled.div`
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 1.5rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.1);
   }
 `;
 
 const ImageContainer = styled.div`
-  flex: 1;
-  max-width: 400px;
+  width: 100%;
+  height: 200px;
   border-radius: 12px;
   overflow: hidden;
-  
-  @media (max-width: 768px) {
-    max-width: 100%;
-    height: 250px;
+  margin-bottom: 1.5rem;
+  position: relative;
+
+  img {
+    transition: transform 0.6s ease;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  ${Card}:hover & img {
+    transform: scale(1.1);
+  }
+`;
+
+const Content = styled.div`
+  text-align: left;
+
+  h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #1b1b1b;
+    margin-bottom: 0.8rem;
+    line-height: 1.4;
+  }
+
+  p {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.6;
   }
 `;
 
@@ -132,52 +146,57 @@ const services = [
   }
 ];
 
-const ServiceList = () => {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-  const contentRefs = useRef<(HTMLDivElement | null)[]>([]);
+const BusinessServices = () => {
+  const gridRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    contentRefs.current.forEach((el, i) => {
-      if (el) {
-        if (i === openIndex) {
-          gsap.to(el, { height: 'auto', duration: 0.5, ease: 'power2.out' });
-        } else {
-          gsap.to(el, { height: 0, duration: 0.5, ease: 'power2.in' });
+    const items = gridRef.current?.children;
+    if (items) {
+      gsap.fromTo(items,
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          stagger: 0.15,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: gridRef.current,
+            start: 'top 85%'
+          }
         }
-      }
-    });
-  }, [openIndex]);
+      );
+    }
+  }, []);
 
   return (
     <Section>
       <Container>
-        {services.map((s, i) => (
-          <ServiceItem key={i} onClick={() => setOpenIndex(prev => prev === i ? null : i)}>
-            <ItemHeader>
-              <h3>{s.title}</h3>
-              <span>{openIndex === i ? '-' : '+'}</span>
-            </ItemHeader>
-            <ItemContent ref={el => contentRefs.current[i] = el}>
-              <div className="content-inner">
-                <ImageContainer>
-                  <ImageWrapper
-                    src={s.img}
-                    alt={s.title}
-                    width={400}
-                    height={300}
-                    widthCSS="100%"
-                    heightCSS="100%"
-                    style={{ objectFit: 'cover' }}
-                  />
-                </ImageContainer>
-                <p>{s.desc}</p>
-              </div>
-            </ItemContent>
-          </ServiceItem>
-        ))}
+        <Header>
+          <h2>Layanan Kami</h2>
+          <p>Solusi komprehensif untuk mendukung pertumbuhan bisnis Anda</p>
+        </Header>
+        <Grid ref={gridRef}>
+          {services.map((service, i) => (
+            <Card key={i}>
+              <ImageContainer>
+                <ImageWrapper
+                  src={service.img}
+                  alt={service.title}
+                  width={400}
+                  height={300}
+                />
+              </ImageContainer>
+              <Content>
+                <h3>{service.title}</h3>
+                <p>{service.desc}</p>
+              </Content>
+            </Card>
+          ))}
+        </Grid>
       </Container>
     </Section>
   );
 };
 
-export default ServiceList;
+export default BusinessServices;

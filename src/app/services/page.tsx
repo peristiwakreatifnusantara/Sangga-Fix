@@ -5,7 +5,7 @@ import CTASection from '@/components/Services/CTASection';
 
 export default function Services() {
     return (
-        <main style={{ minHeight: '100vh', paddingTop: '80px', backgroundColor: 'var(--Background)' }}>
+        <main style={{ minHeight: '100vh' }}>
             <ServicesHero />
             <ProcessSteps />
             <ServiceList />

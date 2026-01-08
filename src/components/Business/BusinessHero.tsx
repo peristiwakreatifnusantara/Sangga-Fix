@@ -61,9 +61,9 @@ const BusinessHero = () => {
   return (
     <Section ref={sectionRef}>
       <Content>
-        <Title ref={titleRef}>Driving Growth Across Industries</Title>
+        <Title ref={titleRef}>Layanan Terpadu Keamanan, Penyewaan Kendaraan & Renovasi Gedung</Title>
         <Description ref={descRef}>
-          We operate at the intersection of technology and business, delivering value in key sectors that shape the global economy.
+          Kami menyediakan jasa penyewaan mobil, pengamanan gedung, serta renovasi dan perawatan bangunan dengan standar profesional, tenaga berpengalaman, dan pelayanan terpercaya.
         </Description>
       </Content>
     </Section>

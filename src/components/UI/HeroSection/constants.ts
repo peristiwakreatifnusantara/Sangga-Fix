@@ -7,7 +7,7 @@ export const paragraphPhrases = [
 export const highlightPhrases = ['PROFESIONAL - DISIPLIN - INTEGRITAS'];
 
 // For mobile
-export const mobilePhrases = ['Building the future', 'of banking'];
+export const mobilePhrases = ['PT.Swadharma Sangga Buana'];
 export const mobileParagraphPhrases = [
   "Membantu perusahaan fokus pada pertumbuhan dengan menyediakan layanan pendukung yang aman, andal, dan terstruktur.",
 ];

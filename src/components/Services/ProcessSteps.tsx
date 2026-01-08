@@ -9,7 +9,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Section = styled.section`
   padding: 8rem 2rem;
-  background-color: var(--light-gray);
   color: var(--Background);
 `;
 
@@ -97,61 +96,61 @@ const Step = styled.div`
 `;
 
 const steps = [
-    { num: '01', title: 'Consultation', desc: 'Understanding your unique challenges and goals.' },
-    { num: '02', title: 'Strategy', desc: 'Developing a tailored roadmap for success.' },
-    { num: '03', title: 'Implementation', desc: 'Executing the plan with precision and expertise.' },
+  { num: '01', title: 'Konsultasi', desc: 'Memahami tantangan dan tujuan unik bisnis Anda.' },
+  { num: '02', title: 'Strategi', desc: 'Mengembangkan peta jalan yang disesuaikan untuk kesuksesan.' },
+  { num: '03', title: 'Implementasi', desc: 'Mengeksekusi rencana dengan presisi dan keahlian.' },
 ];
 
 const ProcessSteps = () => {
-    const containerRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
-    useEffect(() => {
-        const container = containerRef.current;
-        if (container) {
-            const stepsEls = container.querySelectorAll('.step');
-            const lineFill = container.querySelector('.fill');
+  useEffect(() => {
+    const container = containerRef.current;
+    if (container) {
+      const stepsEls = container.querySelectorAll('.step');
+      const lineFill = container.querySelector('.fill');
 
-            gsap.to(lineFill, {
-                width: '100%',
-                duration: 2,
-                scrollTrigger: {
-                    trigger: container,
-                    start: 'top 70%',
-                }
-            });
-
-            gsap.to(stepsEls, {
-                opacity: 1,
-                y: 0,
-                duration: 0.8,
-                stagger: 0.5,
-                scrollTrigger: {
-                    trigger: container,
-                    start: 'top 70%',
-                }
-            });
+      gsap.to(lineFill, {
+        width: '100%',
+        duration: 2,
+        scrollTrigger: {
+          trigger: container,
+          start: 'top 70%',
         }
-    }, []);
+      });
 
-    return (
-        <Section>
-            <Container>
-                <Header>
-                    <h2>How We Work</h2>
-                </Header>
-                <StepsContainer ref={containerRef}>
-                    <Line><div className="fill"></div></Line>
-                    {steps.map((s, i) => (
-                        <Step key={i} className="step">
-                            <div className="circle">{s.num}</div>
-                            <h4>{s.title}</h4>
-                            <p>{s.desc}</p>
-                        </Step>
-                    ))}
-                </StepsContainer>
-            </Container>
-        </Section>
-    );
+      gsap.to(stepsEls, {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        stagger: 0.5,
+        scrollTrigger: {
+          trigger: container,
+          start: 'top 70%',
+        }
+      });
+    }
+  }, []);
+
+  return (
+    <Section>
+      <Container>
+        <Header>
+          <h2>Cara Kerja Kami</h2>
+        </Header>
+        <StepsContainer ref={containerRef}>
+          <Line><div className="fill"></div></Line>
+          {steps.map((s, i) => (
+            <Step key={i} className="step">
+              <div className="circle">{s.num}</div>
+              <h4>{s.title}</h4>
+              <p>{s.desc}</p>
+            </Step>
+          ))}
+        </StepsContainer>
+      </Container>
+    </Section>
+  );
 };
 
 export default ProcessSteps;

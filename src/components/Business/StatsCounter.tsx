@@ -9,7 +9,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Section = styled.section`
   padding: 6rem 2rem;
-  background-color: var(--emerald);
   color: #000;
 `;
 
@@ -44,9 +43,8 @@ const StatItem = styled.div`
 
 const stats = [
     { value: 50, suffix: '+', label: 'Projects Completed' },
-    { value: 12, suffix: '', label: 'Global Offices' },
     { value: 98, suffix: '%', label: 'Client Satisfaction' },
-    { value: 5, suffix: 'M+', label: 'Users Impacted' },
+    { value: 5000, suffix: '+', label: 'Users Impacted' },
 ];
 
 const StatsCounter = () => {

@@ -6,7 +6,6 @@ import gsap from 'gsap';
 
 const Section = styled.section`
   padding: 8rem 2rem;
-  background-color: var(--Background);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -71,8 +70,8 @@ const CTASection = () => {
 
     return (
         <Section>
-            <Title>Ready to Transform Your Business?</Title>
-            <Button ref={btnRef}>Get Started Now</Button>
+            <Title>Siap Mengembangkan Bisnis Anda?</Title>
+            <Button ref={btnRef}>Hubungi Kami Sekarang</Button>
         </Section>
     );
 };

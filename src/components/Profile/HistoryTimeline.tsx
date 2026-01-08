@@ -8,8 +8,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 const Section = styled.section`
+
   padding: -5rem 2rem;
-  background-color: var(--Background);
   position: relative;
 `;
 
@@ -62,7 +62,7 @@ const Item = styled.div<{ $align: 'left' | 'right' }>`
 
 const Content = styled.div`
   width: 45%;
-  background: var(--light-gray);
+  background: transparent;
   padding: 2rem;
   border-radius: 12px;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
@@ -85,8 +85,8 @@ const milestones = [
     { year: '1953', title: 'Foundation', desc: 'PT . Swadharma Sangga Buana merupakan anak perusahaan Yang didirikan oleh yayasan Danar Dana Swadharma, PT . Bank Negara Indonesia (Persero), Tbk.' },
     { year: '1953', title: 'Journey', desc: 'Perjalanan PT .SSB, berawal dari bisnis dibidang Perhotelan sejak tahun 1953, berlokasi di Cipanas– Cianjur dan terus berkembang hingga saat ini menjadi Resort & Convention Hotel.' },
     { year: '2012', title: 'Beginning', desc: 'Seiring dengan perkembangan bisnis akan berbagai kebutuhan berbagai macam jasa layanan, tahun 2012 bisnis BM-TAD (jasa layanan kebersihan dan pengamanan gedung kantor, pengelolaan tenaga outsourcing).' },
-    { year: '2013', title: 'Innovating', desc: 'Tahun 2013membuka jasa persewaan kendaraan Pick Up service uang, kendaraanoperasional mitra bisnis.' },
-    { year: '2014', title: 'Expanding', desc: ' PT . SSB juga menggeluti bisnis di bidang properti (pembangunan perumahan,jual beli dan renovasi properti), pengelolaan limbah elektronik dan equipment,pekerjaan renovasi bangunan gedung dan kantor, jasa pemeliharaan dankebersihan ruang ATM, berikut AC dan elektrikal lainnya.' },
+    { year: '2013', title: 'Innovating', desc: 'Tahun 2013 membuka jasa persewaan kendaraan Pick Up service uang, kendaraan operasional mitra bisnis.' },
+    { year: '2014', title: 'Expanding', desc: ' PT . SSB juga menggeluti bisnis di bidang properti (pembangunan perumahan, jual beli dan renovasi properti), pengelolaan limbah elektronik dan equipment, pekerjaan renovasi bangunan gedung dan kantor, jasa pemeliharaan dan kebersihan ruang ATM, berikut AC dan elektrikal lainnya.' },
 ];
 
 const HistoryTimeline = () => {
