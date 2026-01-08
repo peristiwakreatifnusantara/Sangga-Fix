@@ -13,6 +13,7 @@ export default function Home() {
       <HeroSection />
       <HistoryTimeline />
       <Featured />
+      
       <FinancialFuture />
       <FinancilaFreedom />
       <FAQ />
