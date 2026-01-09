@@ -79,7 +79,7 @@ const PersonCard = styled.div`
 
 const Photo = styled.div`
     min-width: 200px;
-    height: 250px;
+    height: 450px;
 
     border-radius: 14px;
     overflow: hidden;

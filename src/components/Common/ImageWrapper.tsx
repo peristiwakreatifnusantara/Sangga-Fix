@@ -27,10 +27,10 @@ interface ImageWrapperProps extends ImageProps {
     borderRadius?: string;
 }
 
-const ImageWrapper = ({ widthCSS, heightCSS, borderRadius, style, ...props }: ImageWrapperProps) => {
+const ImageWrapper = ({ widthCSS, heightCSS, borderRadius, style, alt = "", ...props }: ImageWrapperProps) => {
     return (
         <Wrapper $width={widthCSS} $height={heightCSS} $borderRadius={borderRadius} style={style}>
-            <Image {...props} />
+            <Image alt={alt} {...props} />
         </Wrapper>
     );
 };
